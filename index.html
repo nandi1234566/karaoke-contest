@@ -22,8 +22,8 @@ Only the email and non-sensitive training flags are sent to the database. The pa
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const SUPABASE_URL = "PASTE_YOUR_SUPABASE_PROJECT_URL";
-const SUPABASE_ANON_KEY = "PASTE_YOUR_SUPABASE_PUBLISHABLE_KEY";
+const SUPABASE_URL = "https://gcuzrmazrpowinddznwv.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_2QsJX8rH5oZnDmtYrj_dHQ_J0bA7KtC";
 const db = (SUPABASE_URL.startsWith("http") && !SUPABASE_ANON_KEY.startsWith("PASTE_"))
   ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
 
@@ -56,5 +56,7 @@ document.getElementById("demoForm").addEventListener("submit", async (e)=>{
   document.getElementById("password").value="";
   document.getElementById("upi").value="";
 });
+
+
 </script>
 </body></html>
