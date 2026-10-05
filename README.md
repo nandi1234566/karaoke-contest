@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/33054984/README.md)
 # Sing & Win ₹1,000 Karaoke
 
 Free static karaoke contest landing page with Google Sign-In.
