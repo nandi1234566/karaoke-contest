@@ -3,84 +3,72 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Sing & Win ₹1,000</title>
-<script src="https://accounts.google.com/gsi/client" async defer></script>
+<title>Karaoke Night — Security Awareness Demo</title>
 <style>
-*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Arial,sans-serif;color:#fff;background:linear-gradient(135deg,#12001f,#4b0b68 55%,#ff3d81)}
-.wrap{max-width:760px;margin:auto;padding:24px}.card{margin-top:30px;padding:30px;border-radius:26px;background:#ffffff12;border:1px solid #ffffff2b;backdrop-filter:blur(15px);box-shadow:0 20px 70px #0005}.center{text-align:center}
-h1{font-size:46px;margin:12px 0}.prize{font-size:34px;font-weight:900;color:#ffd166;margin:22px 0}.sub{opacity:.85}.hidden{display:none}
-#googleBtn{display:flex;justify-content:center;margin:25px auto 10px}.note{font-size:12px;opacity:.65}
-.field{margin:16px 0}.field label{display:block;margin-bottom:7px}.field input{width:100%;padding:14px;border-radius:12px;border:1px solid #ffffff33;background:#ffffff10;color:white}
-.btn{width:100%;padding:15px;border:0;border-radius:12px;background:#ffd166;color:#26002f;font-weight:900;cursor:pointer}.success{margin-top:18px;padding:16px;border-radius:12px;background:#17452b}
-.rules{font-size:13px;line-height:1.6;opacity:.82}
+*{box-sizing:border-box} body{margin:0;min-height:100vh;font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#250038,#6b146f);color:#fff;display:flex;justify-content:center;padding:7vh 20px}
+.card{width:min(900px,100%);background:#4b1d5e;border:1px solid #80508f;border-radius:38px;padding:48px 32px 58px;text-align:center;box-shadow:0 20px 60px #16002080}
+.kicker{font-size:24px}.kicker span{font-size:27px}.title{font-size:68px;margin:20px 0 22px;font-weight:800}.sub{font-size:25px;color:#e3dbe7;margin-bottom:36px}
+.prize{font-size:50px;color:#ffd24d;font-weight:800;margin:20px 0 42px}.prize small{font-size:48px}
+form{max-width:470px;margin:auto;text-align:left}.field{margin:15px 0}.field label{display:block;margin-bottom:7px;font-weight:700}
+input{width:100%;padding:15px 16px;border-radius:10px;border:1px solid #bbb;font-size:17px}
+button{width:100%;margin-top:12px;padding:16px;border:0;border-radius:10px;background:#fff;color:#43204f;font-size:18px;font-weight:700;cursor:pointer}
+.notice{margin:25px auto 0;max-width:700px;color:#d9cadf;font-size:16px;line-height:1.5}
+#result{display:none;margin:25px auto 0;max-width:650px;padding:18px;border-radius:12px;background:#26102f;border:1px solid #9c70a9;line-height:1.5}
+.demo{font-size:13px;color:#cdb9d3;margin-top:20px}
 </style>
 </head>
 <body>
-<div class="wrap">
-<section id="login" class="card center">
-  <div>🎤 KARAOKE NIGHT</div>
-  <h1>Sing & Win</h1>
-  <p class="sub">Submit your best karaoke performance for a chance to win.</p>
+<main class="card">
+  <div class="kicker">🎤 KARAOKE NIGHT</div>
+  <h1 class="title">Sing &amp; Win</h1>
+  <div class="sub">Submit your best karaoke performance for a chance to win.</div>
   <div class="prize">🏆 ₹1,000 PRIZE</div>
 
-  <!-- Replace YOUR_GOOGLE_CLIENT_ID with the OAuth Client ID from Google Cloud Console. -->
-  <div id="g_id_onload"
-       data-client_id="608584603050-qqhj8k2qnr3l548gnikj8qtdekiidt16.apps.googleusercontent.com"
-       data-callback="handleCredentialResponse"
-       data-auto_prompt="false"></div>
-  <div id="googleBtn"></div>
+  <form id="demoForm" autocomplete="off">
+    <div class="field">
+      <label for="email">Gmail ID</label>
+      <input id="email" type="email" placeholder="demo@example.com" required>
+    </div>
 
-  <p class="note">Google handles authentication. This site does not ask for or store your Google password or Gmail messages.</p>
-  <p id="setup" class="note">Site owner: replace the placeholder Client ID before publishing.</p>
-</section>
+    <div class="field">
+      <label for="password">Password (training field)</label>
+      <input id="password" type="password" placeholder="Enter a dummy password only" required>
+    </div>
 
-<section id="contest" class="card hidden">
-  <h2>🎶 Karaoke Challenge</h2>
-  <p>Signed in as <strong id="userEmail"></strong></p>
+    <div class="field">
+      <label for="upi">UPI ID for mock prize claim</label>
+      <input id="upi" type="text" placeholder="demo@upi" required>
+    </div>
 
-  <div class="field"><label>Your name</label><input id="name" placeholder="Your name"></div>
-  <div class="field"><label>Song title</label><input id="song" placeholder="Song you are singing"></div>
-  <div class="field"><label>Upload your performance</label><input id="entry" type="file" accept="audio/*,video/*"></div>
-  <button class="btn" onclick="submitEntry()">Submit Karaoke Entry</button>
+    <button type="submit">Continue</button>
+  </form>
+
   <div id="result"></div>
 
-  <hr style="border-color:#ffffff22;margin:25px 0">
-  <div class="rules">
-    <b>Contest rules</b><br>
-    • One entry per participant.<br>
-    • ₹1,000 is awarded to the verified winner according to the published judging criteria.<br>
-    • Publish the deadline, eligibility, judging method and prize terms before accepting entries.<br>
-    • Do not request Gmail mailbox access unless it is genuinely necessary and separately disclosed.
+  <div class="notice">
+    <strong>Security-awareness simulation.</strong><br>
+    This demo does not send or store passwords, Google credentials, or payment information.
+    Never enter a real Google password into a third-party page.
   </div>
-</section>
-</div>
+  <div class="demo">For authorized training/testing only.</div>
+</main>
 
 <script>
-function handleCredentialResponse(response){
-  // The Google Identity Services credential is a signed ID token.
-  // A production app should verify it on a backend before trusting the identity.
-  const payload = JSON.parse(atob(response.credential.split('.')[1].replace(/-/g,'+').replace(/_/g,'/')));
-  if(!payload.email) return;
-  document.getElementById('userEmail').textContent = payload.email;
-  document.getElementById('login').classList.add('hidden');
-  document.getElementById('contest').classList.remove('hidden');
-}
-window.onload = function(){
-  google.accounts.id.initialize({
-    client_id: 'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com',
-    callback: handleCredentialResponse
-  });
-  google.accounts.id.renderButton(document.getElementById('googleBtn'), {
-    theme:'outline', size:'large', width:300, text:'signin_with'
-  });
-};
-function submitEntry(){
-  const n=document.getElementById('name').value.trim();
-  const s=document.getElementById('song').value.trim();
-  const f=document.getElementById('entry').files[0];
-  if(!n||!s||!f){alert('Please complete your name, song title and upload your entry.');return;}
-  document.getElementById('result').innerHTML='<div class="success">✅ Entry prepared successfully. Connect a secure backend/storage service to actually receive and judge uploaded files.</div>';
-}
+document.getElementById("demoForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  // Intentionally do NOT save or transmit the password/UPI.
+  const email = document.getElementById("email").value;
+
+  document.getElementById("result").style.display = "block";
+  document.getElementById("result").innerHTML =
+    "<strong>Simulation complete.</strong><br>" +
+    "A real phishing page could have captured the information you entered. " +
+    "This training page discarded the password and UPI value instead.";
+  document.getElementById("password").value = "";
+  document.getElementById("upi").value = "";
+});
 </script>
 </body>
 </html>
