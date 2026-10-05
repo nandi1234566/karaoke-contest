@@ -1,13 +1,31 @@
-# Sing & Win ₹1,000 Karaoke
+# Karaoke Security-Awareness Demo
 
-Free static karaoke contest landing page with Google Sign-In.
+## What this stores
+Only:
+- email entered in the simulation
+- whether a password was attempted
+- whether a UPI value was entered
+- campaign name
+- browser user-agent
+- timestamp
 
-## Setup
-1. Create an OAuth Web Client ID in Google Cloud Console.
-2. Add your GitHub Pages domain to the authorized JavaScript origins.
-3. Replace `YOUR_GOOGLE_CLIENT_ID` in `index.html`.
-4. Publish the repository with GitHub Pages.
+The actual password and UPI value are deliberately NOT transmitted or stored.
 
-This version requests Google identity (email/profile) only. It does not request Gmail mailbox access or collect Google passwords.
+## Supabase setup
+1. Create a Supabase project.
+2. Open SQL Editor and run `schema.sql`.
+3. In Project Settings/API, copy the project URL and the browser-safe publishable/anon key.
+4. Put those values into `index.html`.
+5. Upload `index.html` to a GitHub repository and enable GitHub Pages.
 
-For real entry uploads, use a secure backend/storage service rather than storing files in the browser.
+GitHub Pages hosts static HTML; Supabase provides the database.
+
+## Test password
+Use a dummy value such as:
+TrainingOnly123!
+Never enter a real Gmail/Google password.
+
+## Test UPI
+Use a fake value such as:
+demo@upi
+Do not enter a real payment identifier in the training exercise.
